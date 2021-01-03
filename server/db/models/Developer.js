@@ -20,7 +20,52 @@ const developerSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
+    school: {
+      type: String,
+      trim: true,
+      unique: true,
+    },
+    linkedin: {
+      type: String,
+      trim: true,
+      unique: true,
+    },
+    github: {
+      type: String,
+      trim: true,
+      unique: true,
+    },
+    teamLead: {
+      type: String,
+      trim: true,
+      unique: true,
+    },
+    portfolio: {
+      type: String,
+      trim: true,
+      unique: true,
+    },
     password: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    location: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    remotePreference: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    weeklyTimeCommitment: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    projectLength: {
       type: String,
       required: true,
       trim: true,
