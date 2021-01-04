@@ -35,8 +35,7 @@ const developerSchema = new mongoose.Schema(
       unique: true,
     },
     teamLead: {
-      type: String,
-      trim: true,
+      type: Boolean,
     },
     portfolio: {
       type: String,
@@ -70,8 +69,7 @@ const developerSchema = new mongoose.Schema(
     },
     technologies: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Technology',
+        type: String,
         required: true,
       },
     ],
