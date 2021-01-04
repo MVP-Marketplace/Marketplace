@@ -37,7 +37,6 @@ const developerSchema = new mongoose.Schema(
     teamLead: {
       type: String,
       trim: true,
-      unique: true,
     },
     portfolio: {
       type: String,
