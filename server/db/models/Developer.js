@@ -23,7 +23,6 @@ const developerSchema = new mongoose.Schema(
     school: {
       type: String,
       trim: true,
-      unique: true,
     },
     linkedin: {
       type: String,
