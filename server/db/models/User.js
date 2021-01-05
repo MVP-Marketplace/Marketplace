@@ -1,6 +1,67 @@
-//Methods/statics originally written for outdated Developer model.  Maybe usable for User model?
+const mongoose = require('mongoose'),
+  bcrypt = require('bcryptjs'),
+  jwt = require('jsonwebtoken');
 
-//DELETE METHOD to delete password and tokens from new user instance when it is passed back to the  user.
+const userSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  lastName: {
+    type: String,
+    required: true,
+    trim: true
+  }, 
+  email: {
+    type: String,
+    require: true,
+    trim: true,
+    unique: true
+  }, password: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  avatar: {
+    type: String,
+    trim: true
+  },
+  idea: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Project'
+    }
+  ],
+  isTeamLead: {
+    type: Boolean,
+    default: false
+  },
+  linkedIn: {
+    type: String,
+  },
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true
+      }
+    }
+  ]
+}, 
+{
+  timestamp: true
+}
+)
+
+userSchema.virtual('build-role', {
+  ref: 'Builder',
+  localField: '_id',
+  foreignField: 'owner'
+  }
+)
+
+//DELETE METHOD to delete password and tokens from new user instance when it is passed back to the user.
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
@@ -8,8 +69,7 @@ userSchema.methods.toJSON = function () {
   delete userObject.tokens;
   return userObject;
 };
-//Hash the password before saving user
-//left out next() since using async/await
+
 userSchema.pre('save', async function () {
   const user = this;
   if (user.isModified('password'))
@@ -17,7 +77,6 @@ userSchema.pre('save', async function () {
 });
 
 //Create a token
-
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign(
@@ -43,3 +102,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
   if (!isMatch) throw new Error('Invalid password');
   return user;
 };
+
+const User = mongoose.model('User', userSchema);
+module.exports = User
