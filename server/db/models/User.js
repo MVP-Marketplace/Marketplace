@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  idea: [
+  ideas: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Project'
