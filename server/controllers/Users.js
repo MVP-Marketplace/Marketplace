@@ -8,21 +8,13 @@ const isEmpty = value => {
 //Create a new user//
 
 exports.createUser = async (req, res) => {
-  const {
-    firstName,
-    lastName,
-    email,
-    password,
-    isTeamLead,
-    linkedIn,
-  } = req.body;
+  const { firstName, lastName, email, password, linkedIn } = req.body;
   try {
     const user = new User({
       firstName,
       lastName,
       email,
       password,
-      isTeamLead,
       linkedIn,
     });
     const token = await user.generateAuthToken();
