@@ -5,7 +5,7 @@ const express = require('express'),
   path = require('path'),
   openRoutes = require('./routes/open'),
   userRouter = require('./routes/secure/users'),
-  //   passport = require('./middleware/authentication/index'),
+  passport = require('./middleware/authentication/index'),
   fileUpload = require('express-fileupload');
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(
   })
 );
 
-// app.use('/api/*', passport.authenticate('jwt', { session: false }));
+app.use('/api/*', passport.authenticate('jwt', { session: false }));
 app.use('/api/users', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
