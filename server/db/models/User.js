@@ -2,64 +2,65 @@ const mongoose = require('mongoose'),
   bcrypt = require('bcryptjs'),
   jwt = require('jsonwebtoken');
 
-const userSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
+const userSchema = new mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      require: true,
+      trim: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    avatar: {
+      type: String,
+      trim: true,
+    },
+    ideas: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project',
+      },
+    ],
+    isTeamLead: {
+      type: Boolean,
+      default: false,
+    },
+    linkedIn: {
+      type: String,
+    },
+    tokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
   },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
-  }, 
-  email: {
-    type: String,
-    require: true,
-    trim: true,
-    unique: true
-  }, password: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  avatar: {
-    type: String,
-    trim: true
-  },
-  ideas: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Project'
-    }
-  ],
-  isTeamLead: {
-    type: Boolean,
-    default: false
-  },
-  linkedIn: {
-    type: String,
-  },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true
-      }
-    }
-  ]
-}, 
-{
-  timestamp: true
-}
-)
+  {
+    timestamp: true,
+  }
+);
 
 userSchema.virtual('build-role', {
   ref: 'Builder',
   localField: '_id',
-  foreignField: 'owner'
-  }
-)
+  foreignField: 'owner',
+});
 
 //DELETE METHOD to delete password and tokens from new user instance when it is passed back to the user.
 userSchema.methods.toJSON = function () {
@@ -104,4 +105,4 @@ userSchema.statics.findByCredentials = async (email, password) => {
 };
 
 const User = mongoose.model('User', userSchema);
-module.exports = User
+module.exports = User;

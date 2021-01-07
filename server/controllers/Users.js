@@ -1,5 +1,4 @@
 const User = require('../db/models/user');
-const jwt = require('jsonwebtoken');
 
 const isEmpty = value => {
   return !value;
