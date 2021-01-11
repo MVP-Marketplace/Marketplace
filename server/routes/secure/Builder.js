@@ -7,10 +7,10 @@ const {
   deleteOneBuilder,
 } = require('../../controllers/Builders');
 
-router.post('/profile', addProfile);
-router.get('/profile/:id', getSpecificBuilderInfo);
-router.get('/profiles', getAllBuilderInfo);
-router.patch('/profile/:id', updateBuilder);
-router.delete('/profile/:id', deleteOneBuilder);
+router.post('/', addProfile);
+router.get('/:id', getSpecificBuilderInfo);
+router.get('/', getAllBuilderInfo);
+router.patch('/:id', updateBuilder);
+router.delete('/:id', deleteOneBuilder);
 
 module.exports = router;
