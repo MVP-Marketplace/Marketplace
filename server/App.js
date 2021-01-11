@@ -7,6 +7,7 @@ const express = require('express'),
   userRouter = require('./routes/secure/Users'),
   projectRouter = require('./routes/secure/Projects'),
   builderRouter = require('./routes/secure/Builder'),
+  ratingRouter = require('./routes/secure/Rating'),
   passport = require('./middleware/authentication/index'),
   fileUpload = require('express-fileupload');
 const app = express();
@@ -31,6 +32,7 @@ app.use('/api/*', passport.authenticate('jwt', { session: false }));
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/builder', builderRouter);
+app.use('/api/rating', ratingRouter);
 
 
 if (process.env.NODE_ENV === 'production') {

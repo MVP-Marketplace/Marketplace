@@ -1,4 +1,5 @@
 const User = require('../db/models/user');
+const Projects = '../db/models/projects';
 
 const isEmpty = value => {
   return !value;
@@ -14,7 +15,6 @@ exports.createUser = async (req, res) => {
       lastName,
       email,
       password,
-      linkedIn,
     });
     const token = await user.generateAuthToken();
     res.cookie('jwt', token, {
