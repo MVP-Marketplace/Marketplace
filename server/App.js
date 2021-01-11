@@ -4,7 +4,8 @@ const cookieParser = require('cookie-parser');
 const express = require('express'),
   path = require('path'),
   openRoutes = require('./routes/open'),
-  userRouter = require('./routes/secure/users'),
+  userRouter = require('./routes/secure/Users'),
+  projectRouter = require('./routes/secure/Projects'),
   passport = require('./middleware/authentication/index'),
   fileUpload = require('express-fileupload');
 const app = express();
@@ -27,6 +28,7 @@ app.use(
 
 app.use('/api/*', passport.authenticate('jwt', { session: false }));
 app.use('/api/users', userRouter);
+app.use('/api/projects', projectRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (request, response) => {
