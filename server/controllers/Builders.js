@@ -57,7 +57,6 @@ exports.updateBuilder = async (req, res) => {
     'role',
     'specialty',
     'level',
-    'level',
     'rating',
     'github',
     'portfolio',
