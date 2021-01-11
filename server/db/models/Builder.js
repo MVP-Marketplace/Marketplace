@@ -33,10 +33,12 @@ const builderSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    rating: {
-      type: Number,
-      trim: true,
-    },
+    rating: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Rating',
+      },
+    ],
     projects: [
       {
         type: mongoose.Schema.Types.ObjectId,
