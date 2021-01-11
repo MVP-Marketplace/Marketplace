@@ -96,7 +96,7 @@ userSchema.methods.generateAuthToken = async function () {
 
 //Locate user by email and password
 userSchema.statics.findByCredentials = async (email, password) => {
-  const user = await User.findOne({ email }).populate('ideas').execPopulate();
+  const user = await User.findOne({ email }).populate('ideas');
 
   if (!user) throw new Error('User not found by email');
   const isMatch = await bcrypt.compare(password, user.password);

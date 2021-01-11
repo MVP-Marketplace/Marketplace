@@ -33,12 +33,24 @@ const builderSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    rating: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Rating',
-      },
-    ],
+    rating: {
+      value: [
+        {
+          type: Number,
+        },
+      ],
+      //REVIEW change owner to a better descriptor
+      owner: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Rating',
+        },
+      ],
+    },
+    ratingAverage: {
+      type: Number,
+      default: null,
+    },
     projects: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -76,6 +88,15 @@ const builderSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+builderSchema.pre('save', async function () {
+  const builder = this;
+  if (builder.isModified('rating')) {
+    builder.ratingAverage =
+      (await builder.rating.value.reduce((a, b) => a + b)) /
+      builder.rating.value.length;
+  }
+});
 
 const Builder = mongoose.model('Builder', builderSchema);
 module.exports = Builder;

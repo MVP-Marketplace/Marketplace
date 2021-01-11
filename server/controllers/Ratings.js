@@ -12,13 +12,12 @@ exports.createNewRating = async (req, res) => {
       ratee: req.params.id,
     });
     await rating.save();
-    let ratee = await Builder.findOne({ _id: req.params._id });
-    ratee.rating = ratee.rating.concat(rating._id);
+    let ratee = await Builder.findOne({ _id: req.params.id });
+    ratee.rating.value = ratee.rating.value.concat(rating.value);
+    ratee.rating.owner = ratee.rating.owner.concat(rating._id);
     await ratee.save();
     res.status(200).send(rating);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
-
-// AVERAGE RATINGS //
