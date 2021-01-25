@@ -22,7 +22,10 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      //password is only required if there is no googleId
+      required: function () {
+        return this.googleId.length < 0;
+      },
       trim: true,
     },
     avatar: {
@@ -40,6 +43,9 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
     linkedIn: {
+      type: String,
+    },
+    googleId: {
       type: String,
     },
     tokens: [
