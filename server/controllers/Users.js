@@ -5,6 +5,12 @@ const isEmpty = value => {
   return !value;
 };
 
+let Airtable = require('airtable');
+
+let base = new Airtable({ apiKey: process.env.AIR_TABLE_KEY }).base(
+  'appIazMBD5VrlWGe5'
+);
+
 //Create a new user//
 
 exports.createUser = async (req, res) => {
@@ -26,6 +32,27 @@ exports.createUser = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+
+  base('From Mongo DB').create(
+    [
+      {
+        fields: {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+        },
+      },
+    ],
+    function (err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
+    }
+  );
 };
 
 //LOGIN USER//

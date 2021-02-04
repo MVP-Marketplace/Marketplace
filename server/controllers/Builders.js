@@ -14,6 +14,9 @@ exports.addProfile = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+  //how to integrate on one table?
+  // a way to stored the record id of airtable onto mongo
+  //oh wait just add it into the db schema
 };
 
 //GET 'ALL' BUILDER PROFILES//
