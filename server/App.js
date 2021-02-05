@@ -1,21 +1,20 @@
 require('./db/config');
 const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
 
 const express = require('express'),
   path = require('path'),
-  openRoutes = require('./routes/open'),
-  userRouter = require('./routes/secure/Users'),
-  projectRouter = require('./routes/secure/Projects'),
-  builderRouter = require('./routes/secure/Builder'),
-  ratingRouter = require('./routes/secure/Rating'),
-  passport = require('./middleware/authentication/index'),
-  fileUpload = require('express-fileupload');
+  googleRoutes = require('./routes/open/googleauth');
+(openRoutes = require('./routes/open/index')),
+  (userRouter = require('./routes/secure/Users')),
+  (projectRouter = require('./routes/secure/Projects')),
+  (builderRouter = require('./routes/secure/Builder')),
+  (ratingRouter = require('./routes/secure/Rating')),
+  (passport = require('./middleware/authentication/index')),
+  (fileUpload = require('express-fileupload'));
 const app = express();
+
 app.use(passport.initialize());
 app.use(express.json());
-
-app.use('/api', openRoutes);
 app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'production') {
@@ -28,12 +27,27 @@ app.use(
     tempFileDir: '/tmp/images',
   })
 );
+//
+app.use('/api', openRoutes);
 
-//how to make all of these routes authenticated by EITHER jwt or google?
-app.use('/api/*', passport.authenticate('jwt', { session: false }));
+//specific google login routes routes
+app.use(
+  '/api/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+    session: false,
+  })
+);
+app.use('/api', googleRoutes);
 
-// console.log(passport)
-// console.log('here i am')
+//authenticated routes will use jwt or google
+app.use(
+  '/api/*',
+  passport.authenticate(['jwt', 'google'], {
+    scope: ['profile', 'email'],
+    session: false,
+  })
+);
 
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);

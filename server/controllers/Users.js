@@ -48,16 +48,12 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-//User initiates Google login
-exports.loginWithGoogle = passport.authenticate('google', {
-  scope: ['profile', 'email'],
-});
-
-//User redirected from Google
 
 ////////// FOR SECURE ROUTES /////////////////
 
 exports.logoutUser = async (req, res) => {
+  console.log(req.user);
+  console.log('logging out');
   try {
     req.user.tokens = req.user.tokens.filter(token => {
       return token.token !== req.cookies.jwt;
@@ -80,7 +76,7 @@ exports.getCurrentUser = async (req, res) => {
 };
 
 exports.getSpecificUserInfo = async (req, res) => {
-  const _id = req.params.id;
+  const _id = req.user.id;
 
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(400).json({ message: 'not valid info' });

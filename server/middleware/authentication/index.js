@@ -4,7 +4,6 @@ const passport = require('passport'),
   GoogleStrategy = require('passport-google-oauth20').Strategy,
   User = require('../../db/models/user'),
   ExtractJwt = require('passport-jwt').ExtractJwt;
-const keys = require('./googleConfig');
 
 let jwtOptions = {
   jwtFromRequest: req => {
@@ -29,32 +28,27 @@ passport.use(
 );
 
 passport.use(
-  'google',
   new GoogleStrategy(
     {
-      clientID: keys.clientId,
-      clientSecret: keys.secret,
-      callbackURL: keys.callback,
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK,
     },
-    async (accessToken, refreshToken, profile, done) => {
+    async (request, accessToken, refreshToken, profile, done) => {
       //this is a passport callback function
       //it checks if user already exists in the db with the given profile ID
       const user = await User.findOne({ googleId: profile.id });
       if (user) {
+        await user.generateAuthToken();
         done(null, user);
-        console.log(user, 'in middleware');
       } else {
         const newUser = new User({
           googleId: profile.id,
           lastName: profile.name.familyName,
           firstName: profile.name.givenName,
+          email: profile.emails[0].value,
         });
-        const token = await newUser.generateAuthToken();
-
-        console.log(profile);
-
-        console.log(newUser, 'new user in middleware');
-        await newUser.save();
+        await newUser.generateAuthToken();
         done(null, newUser);
       }
     }
