@@ -8,8 +8,9 @@ const express = require('express'),
   projectRouter = require('./routes/secure/Projects'),
   builderRouter = require('./routes/secure/Builder'),
   ratingRouter = require('./routes/secure/Rating'),
-  passport = require('./middleware/authentication/index'),
-  fileUpload = require('express-fileupload');
+  levelRouter = require('./routes/secure/Level');
+(passport = require('./middleware/authentication/index')),
+  (fileUpload = require('express-fileupload'));
 const app = express();
 
 app.use(express.json());
@@ -33,7 +34,7 @@ app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/builder', builderRouter);
 app.use('/api/rating', ratingRouter);
-
+app.use('/api/level', levelRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (request, response) => {

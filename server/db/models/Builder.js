@@ -67,7 +67,15 @@ const builderSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
-
+    level: {
+      value: {
+        type: String,
+      },
+      owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Level',
+      },
+    },
     remotePreference: {
       type: String,
       required: true,
