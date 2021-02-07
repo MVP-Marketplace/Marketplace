@@ -16,7 +16,9 @@ const LandingPage = () => {
             viable products
           </h3>
           <p className='more-information'>For more information:</p>
-          <p className='email'>mvp@makeitmvp.com</p>
+          <a href='mailto:mvp@makeitmvp.com' className='email'>
+            mvp@makeitmvp.com
+          </a>
         </div>
         <img src={graphic} className='graphic' />
       </div>
