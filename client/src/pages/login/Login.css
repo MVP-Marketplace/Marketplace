@@ -1,0 +1,34 @@
+.login-container {
+  /* margin: 0;
+    padding: 0; */
+  color: black;
+  border: red solid;
+}
+
+.welcome-back {
+  color: black;
+  margin: 15% auto auto 11%;
+  font-size: 2%;
+}
+
+.login-heading {
+  color: black;
+  margin: auto auto auto 11%;
+}
+
+.login-form {
+  margin: auto 28% auto 11%;
+}
+
+.username-label {
+  color: black;
+}
+
+.password-label {
+  color: black;
+}
+
+.login-image-container {
+  height: 100vh;
+  background-color: #407bff;
+}
