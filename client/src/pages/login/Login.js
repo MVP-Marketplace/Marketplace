@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Image } from 'react-bootstrap';
 import axios from 'axios';
 import LoginImage from './assets/pana.png';
+import GoogleLogo from './assets/google-logo.png';
 import './Login.css';
 
 const Login = () => {
@@ -30,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <Container className='login-container'>
+    <Container fluid='false' className='login-container'>
       <Row>
         <Col>
           <p className='welcome-back'>Welcome back</p>
@@ -64,19 +65,20 @@ const Login = () => {
               </Button>
 
               <Button className='login-with-google-button' block type='submit'>
-                Or sign-in with google
+                <img src={GoogleLogo} className='google-logo' />
+                Or sign-in with Google
               </Button>
             </Form.Group>
           </Form>
 
-          <Link className='link' to='/sign-up'>
+          <Link className='make-account-link' to='/sign-up'>
             {' '}
             Don't have an account?
           </Link>
         </Col>
 
         <Col className='login-image-container'>
-          <Image src={LoginImage} fluid />
+          <Image src={LoginImage} fluid className='login-image' />
         </Col>
       </Row>
     </Container>
