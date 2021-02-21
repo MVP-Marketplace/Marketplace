@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+  font-weight: 400;
+}
+.nb-wrapper {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.nb-login {
+  margin-right: 3rem;
+}
+
+.nb-container {
+  max-height: 100px;
+}
+
+.nb-button {
+  padding: 15px 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+}

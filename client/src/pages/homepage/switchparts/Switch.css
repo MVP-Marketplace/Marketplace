@@ -1,0 +1,43 @@
+.hm-bg {
+  border-radius: 3em;
+  width: 40vw;
+  max-width: 300px;
+}
+
+.hm-bg-default {
+  background-color: rgba(204, 204, 204, 1);
+  border-radius: 3em;
+  width: 50%;
+}
+
+.coder {
+  background-color: rgba(107, 108, 108, 1);
+}
+
+.hm-desc {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3em;
+}
+
+.hm-desc-row-image {
+  width: 10vw;
+  height: 10vw;
+  max-width: 147px;
+  max-height: 147px;
+  background-color: aqua;
+  border-radius: 50%;
+}
+
+.hm-desc-row-caption {
+  width: 15vw;
+}
+
+@media only screen and (max-width: 999px) {
+  .hm-switch-wrapper,
+  .hm-desc {
+    display: none;
+  }
+}
