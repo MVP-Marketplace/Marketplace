@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+  width: 100vw;
+  color: black;
+}
+
+.welcome-back {
+  color: #2d3748;
+  margin: 15% auto auto 22%;
+  font-size: 16px;
+}
+
+.login-heading {
+  color: #1a202c;
+  margin: auto auto auto 22%;
+  font-size: 30px;
+}
+
+.login-form {
+  margin: 2.6% 28% auto 22%;
+}
+
+.username-label {
+  color: #4a5568;
+}
+
+.password-label {
+  color: #4a5568;
+}
+
+.remember-me {
+  margin: 3% auto 6% auto;
+}
+.remember-me label {
+  color: #2d3748;
+}
+
+.forgot-password {
+  color: #2c5282;
+  margin: 3% auto 6% 14%;
+}
+
+.login-button {
+  background-color: #c1c1c1;
+  border: none;
+}
+
+.login-button:hover {
+  background-color: #7e7e7e;
+}
+
+.login-with-google-button {
+  background-color: #2d3748;
+  border: none;
+  display: inline;
+  white-space: nowrap;
+}
+
+.login-with-google-button:hover {
+  background-color: #22252a;
+}
+
+.google-logo {
+  display: inline;
+  vertical-align: middle;
+  height: 20px !important;
+  width: 20px;
+}
+
+.make-account-link {
+  margin: 20% auto auto 33%;
+}
+
+.login-image-container {
+  height: 100vh;
+  background-color: #407bff;
+}
+
+.login-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 27%;
+}
