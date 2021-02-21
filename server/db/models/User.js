@@ -20,9 +20,17 @@ const userSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
+    //New googleId field for users that use google to authenticate
+    googleId: {
+      type: String,
+    },
     password: {
       type: String,
-      required: true,
+      // password is only required if there is no googleId
+      required: function () {
+        return this.googleId?.length < 0;
+      },
+
       trim: true,
     },
     avatar: {
@@ -42,6 +50,7 @@ const userSchema = new mongoose.Schema(
     linkedIn: {
       type: String,
     },
+
     tokens: [
       {
         token: {

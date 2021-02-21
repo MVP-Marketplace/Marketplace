@@ -1,12 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import LandingPage from './pages/landingpage/LandingPage';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import './App.css';
+
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/profile' component={Profile} />
       </Switch>
     </BrowserRouter>
   );
