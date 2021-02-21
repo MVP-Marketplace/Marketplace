@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { logoutUser } = require('../../controllers/users');
+const { logoutUser, getSpecificUserInfo } = require('../../controllers/users');
 
 router.post('/logout', logoutUser);
+router.get('/:id', getSpecificUserInfo);
 
 module.exports = router;

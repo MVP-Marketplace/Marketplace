@@ -14,6 +14,7 @@ const App = () => {
         </Switch>
       </BrowserRouter>
     </AppContextProvider>
+
   );
 };
 
