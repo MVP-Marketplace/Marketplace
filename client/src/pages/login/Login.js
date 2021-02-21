@@ -59,15 +59,29 @@ const Login = () => {
               />
             </Form.Group>
 
+            <Form.Check
+              inline
+              label='Remember me'
+              type={'checkbox'}
+              className='remember-me'
+            />
+
+            <Link className='forgot-password' to='/'>
+              {' '}
+              Forgot password?
+            </Link>
+
             <Form.Group className='login-button-div'>
               <Button className='login-button' block type='submit'>
                 Log In
               </Button>
 
-              <Button className='login-with-google-button' block type='submit'>
+              {/* <Button className='login-with-google-button' block type='submit'>
                 <img src={GoogleLogo} className='google-logo' />
                 Or sign-in with Google
-              </Button>
+              </Button> */}
+
+              <a href='http://localhost:8000/api/google'></a>
             </Form.Group>
           </Form>
 

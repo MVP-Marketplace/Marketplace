@@ -35,6 +35,18 @@
   color: #4a5568;
 }
 
+.remember-me {
+  margin: 3% auto 6% auto;
+}
+.remember-me label {
+  color: #2d3748;
+}
+
+.forgot-password {
+  color: #2c5282;
+  margin: 3% auto 6% 14%;
+}
+
 .login-button {
   background-color: #c1c1c1;
   border: none;
@@ -60,11 +72,10 @@
   vertical-align: middle;
   height: 20px !important;
   width: 20px;
-  border: solid red;
 }
 
 .make-account-link {
-  margin: 15% auto auto 33%;
+  margin: 20% auto auto 33%;
 }
 
 .login-image-container {
