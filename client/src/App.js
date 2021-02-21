@@ -4,7 +4,8 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import './App.css';
 
-function App() {
+
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -13,6 +14,6 @@ function App() {
       </Switch>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

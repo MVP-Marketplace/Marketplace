@@ -3,13 +3,16 @@ const cookieParser = require('cookie-parser');
 
 const express = require('express'),
   path = require('path'),
-  googleRoutes = require('./routes/open/googleauth');
-(openRoutes = require('./routes/open/index')),
-  (userRouter = require('./routes/secure/Users')),
-  (projectRouter = require('./routes/secure/Projects')),
-  (builderRouter = require('./routes/secure/Builder')),
-  (ratingRouter = require('./routes/secure/Rating')),
+
+  googleRoutes = require('./routes/open/googleauth'),
+  openRoutes = require('./routes/open/index'),
+  userRouter = require('./routes/secure/Users'),
+  projectRouter = require('./routes/secure/Projects'),
+  builderRouter = require('./routes/secure/Builder'),
+  ratingRouter = require('./routes/secure/Rating'),
+  levelRouter = require('./routes/secure/Level');
   (passport = require('./middleware/authentication/index')),
+
   (fileUpload = require('express-fileupload'));
 const app = express();
 
@@ -53,6 +56,8 @@ app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/builder', builderRouter);
 app.use('/api/rating', ratingRouter);
+app.use('/api/level', levelRouter);
+
 
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (request, response) => {
