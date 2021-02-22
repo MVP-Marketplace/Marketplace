@@ -5,19 +5,27 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
+.background {
+  background-image: url('./assets/background.png');
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  margin-left: -12px;
+}
 .wrapper {
   border: 2px blue solid;
-  height: 100%;
-  background-image: url('./background.png');
-  background-size: cover;
+  height: 75%;
+  width: 100% !important;
+
+  background: transparent;
 }
 .title-wrapper {
   margin-top: 188px;
   width: 936px;
   height: 170px;
-  margin-left: 79px;
-}
-.title-wrapper h1 {
+  background: transparent !important;
+  border: none;
   color: #ffffff;
   font-family: Inter;
   font-size: 60px;
@@ -27,19 +35,72 @@
   letter-spacing: 0em;
   text-align: left;
 }
-.role-wrapper {
-  width: 608px;
-  height: 154px;
+.card-title {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+#polygon {
+  width: 75px;
+  height: 74px;
+  left: 466px;
+  top: 418px;
+}
+#arrow {
+  width: 18.67px;
+  height: 18.67px;
   margin: auto;
-  background: #f6f6f5;
-  border: 1px solid #565758;
+}
+#user-icon {
+  width: 28px;
+  height: 28px;
+}
+.card-image-wrapper {
+  background-image: url('./assets/Polygon.png');
+  background-size: contain;
+  background-repeat: no-repeat !important;
+  margin: auto;
+  border: none;
+  height: 74px;
+  width: 75px;
+  background-color: transparent;
+}
+.card-image-wrapper:hover {
+  background-image: url('./assets/PolygonHover.png');
+  background-size: contain;
+  background-repeat: no-repeat !important;
+  margin: auto;
+  border: none;
+  height: 74px;
+  width: 75px;
+  background-color: transparent;
+}
+.role-wrapper {
+  background: #f6f6f5 !important;
+  border: 1px solid #565758 !important;
   box-sizing: border-box;
   box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
   border-radius: 6px;
+  width: 608px;
+  height: 154px;
+  margin: auto auto 20px auto;
+  display: flex;
 }
-.role-wrapper h2 {
-  color: #000000;
-}
-.role-wrapper p {
+
+.card-text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
   color: #8692a6;
+  margin: auto;
 }
