@@ -8,7 +8,7 @@
 .wrapper {
   border: 2px blue solid;
   height: 100%;
-  background-color: #2f80ed;
+  background-image: url('./background.png');
   background-size: cover;
 }
 .title-wrapper {
