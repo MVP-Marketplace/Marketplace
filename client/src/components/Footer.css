@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+.full-wrapper {
+  background: #ffffff !important;
+  max-width: 100% !important;
+}
+.footer {
+  max-width: 100% !important;
+}
 #insta-logo {
   height: 16px;
   width: 16px;
@@ -59,6 +67,9 @@
   line-height: 20px;
   letter-spacing: -0.204545px;
   color: #1e2833;
+}
+.description {
+  margin: auto;
 }
 .follow {
   height: 22px;
