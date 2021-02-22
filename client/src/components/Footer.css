@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+.full-wrapper {
+  background: #ffffff !important;
+  max-width: 100% !important;
+}
+.footer {
+  max-width: 100% !important;
+}
+#insta-logo {
+  height: 16px;
+  width: 16px;
+}
+#fb-logo {
+  height: 15.875968933105469px;
+  width: 7.938645839691162px;
+  margin-right: 15px;
+}
+#logo {
+  height: 21.999999846283004px;
+  width: 20.628448342194346px;
+}
+.right-wrapper {
+  width: 70%;
+  border: none;
+  margin: auto;
+  justify-content: space-evenly;
+}
+.left-wrapper {
+  width: 30%;
+  border: none;
+  margin: auto;
+  justify-content: space-evenly;
+}
+.social-wrapper {
+  width: 35%;
+}
+
+.mvp-wrapper {
+  width: 60%;
+  margin: auto;
+}
+.mvp {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.1px;
+  color: #000000;
+}
+.link {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.204545px;
+  color: #263238;
+}
+.description-wrapper {
+  width: 70%;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.204545px;
+  color: #1e2833;
+}
+.description {
+  margin: auto;
+}
+.follow {
+  height: 22px;
+  margin-left: 0%;
+  margin-right: 15.29%;
+  margin-top: calc(50% - 22px / 2 - 19px);
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.231818px;
+  color: #2091f9;
+}
+h5 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+
+  text-align: center;
+  letter-spacing: -0.204545px;
+
+  color: #1e2833;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
