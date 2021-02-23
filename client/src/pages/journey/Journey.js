@@ -2,11 +2,11 @@ import React from 'react';
 import './Journey.css';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer.js';
-import { Card, Container, Image } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
 import Union from './assets/Union.png';
 import User from './assets/user.png';
 import Briefcase from './assets/briefcase.png';
-import Background from './assets/Background.png';
+import Background from './assets/background.png';
 const Journey = () => {
   return (
     <div className='wrapper'>
