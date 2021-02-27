@@ -42,6 +42,9 @@ const userSchema = new mongoose.Schema(
     linkedIn: {
       type: String,
     },
+    airtableID: {
+      type: String,
+    },
     tokens: [
       {
         token: {
